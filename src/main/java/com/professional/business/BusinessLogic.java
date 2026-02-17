@@ -11,8 +11,9 @@ public class BusinessLogic {
         this.entities = new ArrayList<>();
     }
 
-    public void createEntity(Entity entity) {
+    public boolean createEntity(Entity entity) {
         entities.add(entity);
+        return true;
     }
 
     public Entity readEntity(int id) {
@@ -22,16 +23,18 @@ public class BusinessLogic {
                 .orElse(null);
     }
 
-    public void updateEntity(int id, Entity updatedEntity) {
+    public boolean updateEntity(int id, Entity updatedEntity) {
         for (int i = 0; i < entities.size(); i++) {
             if (entities.get(i).getId() == id) {
                 entities.set(i, updatedEntity);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
-    public void deleteEntity(int id) {
+    public boolean deleteEntity(int id) {
         entities.removeIf(entity -> entity.getId() == id);
+        return true;
     }
 }

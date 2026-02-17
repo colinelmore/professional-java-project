@@ -19,7 +19,7 @@ public class ServiceLayer {
     }
 
     public void modifyEntity(Entity entity) {
-        businessLogic.updateEntity(entity);
+        businessLogic.updateEntity(entity.getId(),entity);
     }
 
     public void removeEntity(int id) {

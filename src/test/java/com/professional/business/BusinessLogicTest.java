@@ -2,6 +2,9 @@ package com.professional.business;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.professional.models.Entity;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class BusinessLogicTest {
@@ -32,7 +35,7 @@ class BusinessLogicTest {
         Entity entity = new Entity(1, "Test Entity", "This is a test entity.");
         businessLogic.createEntity(entity);
         entity.setName("Updated Entity");
-        assertTrue(businessLogic.updateEntity(entity));
+        assertTrue(businessLogic.updateEntity(entity.getId(),entity));
         Entity updatedEntity = businessLogic.readEntity(1);
         assertEquals("Updated Entity", updatedEntity.getName());
     }
